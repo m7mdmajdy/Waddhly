@@ -90,3 +90,8 @@ E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\obj\Debug\net6.0
 E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\obj\Debug\net6.0\Waddhly.pdb
 E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\obj\Debug\net6.0\Waddhly.genruntimeconfig.cache
 E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\obj\Debug\net6.0\ref\Waddhly.dll
+E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+E:\ITI\Projects\Graduation Project\Project\Back\Waddhly\Waddhly\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

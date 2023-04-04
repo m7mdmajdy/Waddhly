@@ -1,15 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Waddhly.Models;
 using Waddhly.Models.Community;
 using Waddhly.Models.UserServices;
 
 namespace Waddhly.Data
 {
-    public class ApplicationDbContext :DbContext
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {
-            
+
         }
         public DbSet<Comment> Comments{ get; set; }
         public DbSet<RoomMessage> RoomMessages { get; set; }
