@@ -13,6 +13,7 @@ namespace Waddhly.Models
         public double MoneyAccount { get; set; }
         public string Country { get; set; }
         public double HourRate { get; set; }
+        public string Gender { get; set; }
         public virtual Category category{ get; set; }
 
     }

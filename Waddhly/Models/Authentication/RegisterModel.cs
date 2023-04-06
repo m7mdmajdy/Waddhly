@@ -12,20 +12,15 @@ namespace Waddhly.Models.Authentication
         [Required]
         public string Username { get; set; }
         [Required]
-        public string Title { get; set; }
-        [Required]
-        public string Summary { get; set; }
-        [Required]
         public string Email { get; set; }
         [Required]
         public string Country { get; set; }
         [Required]
-        public double HourRate { get; set; }
-        [Required]
         public string PhoneNumber { get; set; }
+        [Required]
+        public string Gender { get; set; }
         [Required]
         public string Password { get; set; }
         
-        public virtual int categoryID { get; set; }
     }
 }

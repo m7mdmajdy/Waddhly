@@ -65,23 +65,20 @@ namespace Waddhly.Services
                 return new AuthModel { Message = "Username is already registered" };
             }
 
-            Category retrievedCategory = _context.Categories.Find(model.categoryID);
+            /*Category retrievedCategory = _context.Categories.Find(model.categoryID);
             if (retrievedCategory == null)
             {
                 return new AuthModel { Message = "No category selected" };
-            }
+            }*/
             User user = new User
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                Title = model.Title,
-                Summary = model.Summary,
                 Email = model.Email,
                 UserName = model.Username,
                 Country = model.Country,
-                HourRate = model.HourRate,
                 PhoneNumber= model.PhoneNumber,
-                category = retrievedCategory,
+                /*category = retrievedCategory,*/
             };
             var result = await _userManager.CreateAsync(user,model.Password);
             if(!result.Succeeded) 
