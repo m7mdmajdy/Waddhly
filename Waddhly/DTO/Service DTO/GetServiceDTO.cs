@@ -13,8 +13,7 @@
 		public string user_firstname { get; set; }
 		public string user_lastname { get; set; }
 		public string user_title { get; set; }
+        public string user_id { get; set; }
 
-
-
-	}
+    }
 }

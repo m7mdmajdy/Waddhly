@@ -7,5 +7,6 @@
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public virtual User user { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

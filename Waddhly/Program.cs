@@ -28,6 +28,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(dbConfig);
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "CorsPolicyAllHosts",
+        builder =>
+        {
+            builder.AllowAnyOrigin();
+            builder.AllowAnyMethod();
+            builder.AllowAnyHeader();
+        });
+});
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -69,7 +79,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseAuthorization();
-
+app.UseCors("CorsPolicyAllHosts");
 app.MapControllers();
 app.MapHub<ChatHub>("/Chat");
 

@@ -37,7 +37,8 @@ namespace Waddhly.Controllers
 				s.user_firstname = item.user.FirstName;
 				s.user_lastname = item.user.LastName;
 				s.user_title = item.user.Title;
-				services.Add(s);
+                s.user_id = item.user.Id;
+                services.Add(s);
 			}
 			if(test !=null)
 			{
