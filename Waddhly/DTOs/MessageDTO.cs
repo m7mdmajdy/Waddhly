@@ -7,6 +7,8 @@ namespace Waddhly.DTOs
         public string Content { get; set; }
         public DateTime? Date { get; set; }
         public string SenderId { get; set; }
+        public string senderName { get; set; }
         public string RecieverId { get; set; }
+        public string RecieverName { get; set; }
     }
 }

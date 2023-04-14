@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Waddhly.Models.Community;
 using Waddhly.Models;
 using Waddhly.Data;
+using Waddhly.DTOs;
 
 namespace Waddhly.Services.Chat
 {
@@ -15,17 +16,70 @@ namespace Waddhly.Services.Chat
             _context = context;
         }
 
-        public async Task SendMessage(string user, string recieverConnectionId, string message)
+        public async Task sendMsg(string userReciverConnId,string userId2, string userId, string message)
         {
-
-            User Reciever = _context.Users.Find(user);
-            User Sender = _context.Users.Find(recieverConnectionId);
-            RoomMessage roomMessage = new RoomMessage { Content = message, Reciever = Reciever, Sender = Sender };
+            User userSender = _context.Users.FirstOrDefault(x => x.Id == userId2);
+            User userReciever = _context.Users.FirstOrDefault(x => x.Id == userId);
+            RoomMessage roomMessage = new RoomMessage { Content = message, Sender = userSender, Date = DateTime.Now, Reciever = userReciever };
             _context.RoomMessages.Add(roomMessage);
-             _context.SaveChanges();
+            _context.SaveChanges();
+            string x = Context.ConnectionId;
+            List<MessageDTO> messageDTOs = _context.RoomMessages.Select(x => new MessageDTO
+            {
+                Date = x.Date,
+                SenderId = x.Sender.Id,
+                senderName = x.Sender.UserName,
+                RecieverId = x.Reciever.Id,
+                RecieverName = x.Reciever.UserName,
+                Content = x.Content,
+            }).Where(x => (x.SenderId == userSender.Id && x.RecieverId == userReciever.Id) ||
+            (x.SenderId == userReciever.Id && x.RecieverId == userSender.Id)).OrderBy(x => x.Date).ToList();
 
-            await Clients.Client(recieverConnectionId).SendAsync("RecieveMsg", user, message);
+            if (userReciverConnId != null)
+            {
+                await Clients.Client(userReciverConnId).SendAsync("sendMsgResponse", Context.ConnectionId, userSender.Id, messageDTOs);
+            }
+        }
+        public async Task updateConnectionId(string userId)
+        {
+            User user = _context.Users.Find(userId);
+            user.ConnectionId = Context.ConnectionId;
+            _context.SaveChanges();
+        }
+        public async Task getMessages(string user, string user2)
+        {
+            string x = Context.ConnectionId;
+            List<MessageDTO> messageDTOs = _context.RoomMessages.Select(x=> new MessageDTO
+            {
+                Date=x.Date,
+                SenderId=x.Sender.Id,
+                senderName=x.Sender.UserName,
+                RecieverId=x.Reciever.Id,
+                RecieverName=x.Reciever.UserName,
+                Content=x.Content,
+            }).Where(x => (x.SenderId==user && x.RecieverId==user2) || (x.SenderId==user2 && x.RecieverId==user)).ToList();
+
+          
+
+            await Clients.Client(user).SendAsync("sendMessagesResponse", Context.ConnectionId, messageDTOs);
+        }
+        public async Task askServer(string someTextFromClient)
+        {
+            string tempString;
+            if (someTextFromClient == "hey")
+            {
+                tempString = "messge he";
+            }
+            else
+            {
+                tempString = "message not hey";
+            }
+            await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", tempString);
         }
         public string GetConnectionId() => Context.ConnectionId;
+        public string GetConnectionIdByUserId(string userId)
+        {
+            return _context.Users.Find(userId).ConnectionId;
+        }
     }
 }

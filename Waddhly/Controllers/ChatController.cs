@@ -25,7 +25,7 @@ namespace Waddhly.Controllers
             _context = context;
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public async Task<IActionResult> sendMsg([FromBody] MessageDTO roomMessage)
         {
             User Reciever = _context.Users.Find(roomMessage.RecieverId);
@@ -34,6 +34,29 @@ namespace Waddhly.Controllers
             await _chathub.Clients.Client(Reciever.Id).SendAsync("RecieveMsg", Sender.Id, roomMessage.Content);
             _context.SaveChanges();
             return Ok(roomMessage);
+        }*/
+        [HttpGet]
+        public async Task<IActionResult> GetMessagesChat(string userId1, string userId2)
+        {
+            List<MessageDTO> messageDTOs =  _context.RoomMessages.Select(x => new MessageDTO
+            {
+                Date = x.Date,
+                SenderId = x.Sender.Id,
+                senderName = x.Sender.UserName,
+                RecieverId = x.Reciever.Id,
+                RecieverName = x.Reciever.UserName,
+                Content = x.Content,
+            }).Where(x => 
+            (x.SenderId == userId1 && x.RecieverId == userId2) ||
+            (x.SenderId == userId2 && x.RecieverId == userId1)).ToList();
+
+            return Ok(messageDTOs);
+        }
+
+        [HttpGet("{id}")]
+        public string GetConnectionIdByUserId(string id)
+        {
+            return _context.Users.Find(id).ConnectionId;
         }
     }
 }
