@@ -14,6 +14,7 @@ namespace Waddhly.Models
         public string Country { get; set; }
         public double HourRate { get; set; }
         public string Gender { get; set; }
+        public string ConnectionId { get; set; }
         public virtual Category category{ get; set; }
 
     }

@@ -5094,11 +5094,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ITI\\Projects\\Graduation Project\\Project\\Back\\Waddhly\\Waddhly\\Waddhly.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Waddahly back\\Waddhly\\Waddhly\\Waddhly.csproj",
       "projectName": "Waddhly",
-      "projectPath": "E:\\ITI\\Projects\\Graduation Project\\Project\\Back\\Waddhly\\Waddhly\\Waddhly.csproj",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\Waddahly back\\Waddhly\\Waddhly\\Waddhly.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "E:\\ITI\\Projects\\Graduation Project\\Project\\Back\\Waddhly\\Waddhly\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\Waddahly back\\Waddhly\\Waddhly\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

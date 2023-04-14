@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZgcnCBoNnj7XJv3x6r82ZXS2bRm6F0f8MqYnDXRTzx3HgEoZE+xAmEVoZxdYyyA10Zy0mloziGOed8eTdfpGkg==",
+  "dgSpecHash": "SDuCDGLb/dDEtduQvRSQvIO0YRz9pK/IOj8e7+9v+D6IvS5L9a1ORHCQACMREWbX/+iL7aWIyc9lBYTfFYSLSw==",
   "success": true,
-  "projectFilePath": "E:\\ITI\\Projects\\Graduation Project\\Project\\Back\\Waddhly\\Waddhly\\Waddhly.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Desktop\\Waddahly back\\Waddhly\\Waddhly\\Waddhly.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
