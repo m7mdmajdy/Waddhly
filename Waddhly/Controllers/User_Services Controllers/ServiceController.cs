@@ -112,9 +112,10 @@ namespace Waddhly.Controllers
 			service.ID = addService.Id;
 			service.Title = addService.title;
 			service.Description=addService.Description;
-			service.Status = addService.status;
-			service.PublishDate = addService.date;
+			service.Status = true;
+			service.PublishDate = DateTime.Now;
 			service.EstimatedHours=addService.hours;
+
 			int id1 = addService.category_id;
 			var _category=_context.Categories.Find(id1);
 			string id2 = addService.user_id;
@@ -142,8 +143,8 @@ namespace Waddhly.Controllers
 			service.ID = serviceDTO.Id;
 			service.Title = serviceDTO.title;
 			service.Description = serviceDTO.Description;
-			service.Status = serviceDTO.status;
-			service.PublishDate = serviceDTO.date;
+			/*service.Status = serviceDTO.status;
+			service.PublishDate = serviceDTO.date;*/
 			service.EstimatedHours = serviceDTO.hours;
 			int id1 = serviceDTO.category_id;
 			var _category = _context.Categories.Find(id1);
