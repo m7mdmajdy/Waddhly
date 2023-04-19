@@ -179,7 +179,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("userid");
 
-                    b.ToTable("Certificates");
+                    b.ToTable("Certificates", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.Community.Comment", b =>
@@ -208,7 +208,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("userid");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.Community.Post", b =>
@@ -235,7 +235,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("userid");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.Community.RoomMessage", b =>
@@ -264,7 +264,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("RoomMessages");
+                    b.ToTable("RoomMessages", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.Community.Rooms", b =>
@@ -287,7 +287,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("user2Id");
 
-                    b.ToTable("Rooms");
+                    b.ToTable("Rooms", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.Portfolio", b =>
@@ -320,7 +320,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("userid");
 
-                    b.ToTable("Portfolios");
+                    b.ToTable("Portfolios", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.User", b =>
@@ -439,7 +439,7 @@ namespace Waddhly.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.UserServices.Proposal", b =>
@@ -477,7 +477,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("Proposals");
+                    b.ToTable("Proposals", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.UserServices.Service", b =>
@@ -515,7 +515,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", (string)null);
                 });
 
             modelBuilder.Entity("Waddhly.Models.UserServices.Session", b =>
@@ -545,7 +545,7 @@ namespace Waddhly.Migrations
 
                     b.HasIndex("proposalID");
 
-                    b.ToTable("Sessions");
+                    b.ToTable("Sessions", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

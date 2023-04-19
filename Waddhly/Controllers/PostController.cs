@@ -23,7 +23,7 @@ namespace Waddhly.Controllers
             post.Title = postdto.Title;
             post.userid = postdto.userid;
             post.Description = postdto.Description;
-            post.Date = postdto.Date;
+            post.Date = DateTime.Now;
             context.Posts.Add(post);
             context.SaveChanges();
             return Ok();

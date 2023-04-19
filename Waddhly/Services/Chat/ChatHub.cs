@@ -108,8 +108,8 @@ namespace Waddhly.Services.Chat
             RoomMessage roomMessage = new RoomMessage
             {
                 Content = message,
-                Reciever = Reciver,
-                Sender = Sende,
+                Reciever = Sende,
+                Sender = Reciver,
                 Date = DateTime.Now,
             };
             var oldMessagesValidation = _context.Rooms
@@ -204,6 +204,12 @@ namespace Waddhly.Services.Chat
                 return true;
             }
             return false;
+        }
+        public void changeStatus(int id)
+        {
+            var prop = _context.Proposals.FirstOrDefault(x=>x.ID==id);
+            prop.status = true;
+            _context.SaveChanges();
         }
     }
 }

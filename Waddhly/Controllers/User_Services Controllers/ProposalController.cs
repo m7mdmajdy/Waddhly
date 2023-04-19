@@ -83,6 +83,7 @@ namespace Waddhly.Controllers
 			p.Cost=addProposal.Cost;
 			p.Description=addProposal.Description;
 			p.NoOfHours = addProposal.NoOfHours;
+			p.status = false;
 			int id1 = addProposal.service_id;
 			var _service = _context.Services.Find(id1);
 			string id2 = addProposal.user_id;

@@ -86,6 +86,7 @@ namespace Waddhly.Controllers
                 c.Description = commentdto.commentdescription;
                 c.Date = commentdto.commentdate;
                 c.postid = post.ID;
+                c.Date = DateTime.Now;
                 c.userid = commentdto.commentUserId;
                 context.Comments.Add(c);
                 context.SaveChanges();

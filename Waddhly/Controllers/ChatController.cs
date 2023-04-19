@@ -49,7 +49,7 @@ namespace Waddhly.Controllers
                 Content = x.Content,
             }).Where(x => 
             (x.SenderId == userId1 && x.RecieverId == userId2) ||
-            (x.SenderId == userId2 && x.RecieverId == userId1)).ToList();
+            (x.SenderId == userId2 && x.RecieverId == userId1)).OrderByDescending(x=>x.Date).ToList();
 
             return Ok(messageDTOs);
         }
