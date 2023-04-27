@@ -52,9 +52,12 @@ namespace Waddhly.Services.Chat
         }
         public async Task updateConnectionId(string userId)
         {
-            User user = _context.Users.Find(userId);
-            user.ConnectionId = Context.ConnectionId;
-            _context.SaveChanges();
+            if(userId!=null)
+            {
+                User user = _context.Users.Find(userId);
+                user.ConnectionId = Context.ConnectionId;
+                _context.SaveChanges();
+            }
         }
         public async Task updatePeerId(string userId, string peerID)
         {
@@ -137,7 +140,7 @@ namespace Waddhly.Services.Chat
                 .ThenInclude(x => x.user)
                 .Where(x=>((x.user.UserName == teacher && x.service.user.UserName == student) ||
                 (x.user.UserName == student && x.service.user.UserName == teacher))
-                && x.status == true && x.IsDone==false)
+                && x.status == true && (x.IsDone == false || x.IsDone==null))
                 .OrderByDescending(x=>x.ID).FirstOrDefault();
             if (proposal != null)
             {
@@ -177,7 +180,7 @@ namespace Waddhly.Services.Chat
 
                  .Where(x => ((x.proposal.user.UserName == teacher && x.proposal.service.user.UserName == student) ||
                  (x.proposal.user.UserName == student && x.proposal.service.user.UserName == teacher))
-                 && x.proposal.status == true && x.proposal.IsDone==false)
+                 && x.proposal.status == true && (x.proposal.IsDone == false || x.proposal.IsDone==null))
                  .OrderByDescending(x => x.ID).FirstOrDefault();
 
             if (session != null)
@@ -207,7 +210,10 @@ namespace Waddhly.Services.Chat
         }
         public void changeStatus(int id)
         {
-            var prop = _context.Proposals.FirstOrDefault(x=>x.ID==id);
+            var prop = _context.Proposals.Include(c=>c.service).ThenInclude(x=>x.user).Include(x=>x.user).FirstOrDefault(x=>x.ID==id);
+            var sender = prop.service.user;
+            var reciever = prop.user;
+            SendUserMessage(sender.Id, reciever.Id, "I have accepted your offer on my service!");
             prop.status = true;
             _context.SaveChanges();
         }

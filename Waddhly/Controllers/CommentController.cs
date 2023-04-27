@@ -77,16 +77,15 @@ namespace Waddhly.Controllers
             else { return BadRequest("post not found"); }
         }
         [HttpPost]
-        public ActionResult AddComment(int id, [FromForm] AddcommentDto commentdto)
+        public ActionResult AddComment(int id, AddcommentDto commentdto)
         {
             var post = context.Posts.FirstOrDefault(p => p.ID == id);
             if (post != null)
             {
                 Comment c = new Comment();
                 c.Description = commentdto.commentdescription;
-                c.Date = commentdto.commentdate;
-                c.postid = post.ID;
                 c.Date = DateTime.Now;
+                c.postid = post.ID;
                 c.userid = commentdto.commentUserId;
                 context.Comments.Add(c);
                 context.SaveChanges();
