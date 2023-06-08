@@ -5,7 +5,6 @@
 <br>
 &emsp;&emsp;o User, also, can reach out users who have the abilities and skills to perform his job.
 <br>
-
 &emsp;&emsp;o The platform guarantees the hired user’s rights.
 <br>
 &emsp;&emsp;o Online Payments
