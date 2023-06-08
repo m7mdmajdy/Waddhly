@@ -16,7 +16,7 @@
 ### Technologies/Methods used: <br>
 &emsp;&emsp;o ASP.NET Web API<br>
 &emsp;&emsp;o SQL Server<br>
-&emsp;&emsp;o Entity framework and LINQ
+&emsp;&emsp;o Entity framework and LINQ <br>
 &emsp;&emsp;o SignalR<br>
 &emsp;&emsp;o PayPal Sandbox<br>
 &emsp;&emsp;o Angular<br>
